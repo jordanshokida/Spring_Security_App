@@ -41,9 +41,6 @@ public class SpringSecurityAppApplication {
 					.name("DELETE")
 					.build();
 
-			Permission refactorPermission = Permission.builder()
-					.name("REFACTOR")
-					.build();
 
 			/* Create ROLES */
 			Role roleAdmin = Role.builder()
@@ -63,7 +60,7 @@ public class SpringSecurityAppApplication {
 
 			Role roleDeveloper = Role.builder()
 					.roleEnum(RoleEnum.DEVELOPER)
-					.permissionList(Set.of(createPermission, readPermission, updatePermission, deletePermission, refactorPermission))
+					.permissionList(Set.of(createPermission, readPermission, updatePermission, deletePermission))
 					.build();
 
 			/* CREATE USERS */

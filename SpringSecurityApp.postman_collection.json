@@ -7,19 +7,146 @@
 	},
 	"item": [
 		{
-			"name": "403",
+			"name": "SIGN-UP ALEJANDRA ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"alejandra\",\r\n    \"password\":\"12345\",\r\n    \"roleRequest\":{\r\n        \"roleListName\":[           \r\n            \"ADMIN\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SIGN-UP CARLOS ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"carlos\",\r\n    \"password\":\"123456\",\r\n    \"roleRequest\":{\r\n        \"roleListName\":[           \r\n            \"INVITED\"\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 LOGIN ALEJANDRA",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "andrea",
+							"key": "token",
+							"value": "",
 							"type": "string"
-						},
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"alejandra\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/log-in",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"log-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 LOGIN CARLOS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJjYXJsb3MiLCJhdXRob3JpdGllcyI6IlJPTEVfSU5WSVRFRCxSRUFEIiwiaWF0IjoxNzIxODYyNTg5LCJleHAiOjE3MjE4ODA1ODksImp0aSI6ImVjMDIxNDE4LTk4NzUtNGRlNi1iNDlmLTE2NDEwODI3ZWJmMiIsIm5iZiI6MTcyMTg2MjU4OX0.wQrRjGyRkxb5GUUeiHOtCBmO1b6_sMs7L1MY1a2tmUE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"alejandra\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/log-in",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"log-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 ALEJANDRA",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJhbGVqYW5kcmEiLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4sREVMRVRFLFJFQUQsQ1JFQVRFLFVQREFURSIsImlhdCI6MTcyMTg2MjU2MSwiZXhwIjoxNzIxODgwNTYxLCJqdGkiOiI5ODA2Nzk4Ny1hNmZjLTQ2MDgtYjA4MC03NWY5YTBiM2IzMTUiLCJuYmYiOjE3MjE4NjI1NjF9.krNOGyXI9H9XZDdJkqf3u59lSa1JfkYP4YoG9K1w_yU",
 							"type": "string"
 						}
 					]
@@ -27,13 +154,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/post",
+					"raw": "localhost:8080/methods/post",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"post"
 					]
 				}
@@ -41,19 +168,14 @@
 			"response": []
 		},
 		{
-			"name": "200",
+			"name": "403 CARLOS",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "anyi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJjYXJsb3MiLCJhdXRob3JpdGllcyI6IlJPTEVfSU5WSVRFRCxSRUFEIiwiaWF0IjoxNzIxODYyNTg5LCJleHAiOjE3MjE4ODA1ODksImp0aSI6ImVjMDIxNDE4LTk4NzUtNGRlNi1iNDlmLTE2NDEwODI3ZWJmMiIsIm5iZiI6MTcyMTg2MjU4OX0.wQrRjGyRkxb5GUUeiHOtCBmO1b6_sMs7L1MY1a2tmUE",
 							"type": "string"
 						}
 					]
@@ -61,13 +183,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/post",
+					"raw": "localhost:8080/methods/post",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"post"
 					]
 				}
@@ -75,19 +197,14 @@
 			"response": []
 		},
 		{
-			"name": "200",
+			"name": "200 CARLOS",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "anyi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJjYXJsb3MiLCJhdXRob3JpdGllcyI6IlJPTEVfSU5WSVRFRCxSRUFEIiwiaWF0IjoxNzIxODYyNTg5LCJleHAiOjE3MjE4ODA1ODksImp0aSI6ImVjMDIxNDE4LTk4NzUtNGRlNi1iNDlmLTE2NDEwODI3ZWJmMiIsIm5iZiI6MTcyMTg2MjU4OX0.wQrRjGyRkxb5GUUeiHOtCBmO1b6_sMs7L1MY1a2tmUE",
 							"type": "string"
 						}
 					]
@@ -95,13 +212,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/get",
+					"raw": "localhost:8080/methods/get",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"get"
 					]
 				}
@@ -109,19 +226,14 @@
 			"response": []
 		},
 		{
-			"name": "200",
+			"name": "403 CARLOS",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "santiago",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJjYXJsb3MiLCJhdXRob3JpdGllcyI6IlJPTEVfSU5WSVRFRCxSRUFEIiwiaWF0IjoxNzIxODYyNTg5LCJleHAiOjE3MjE4ODA1ODksImp0aSI6ImVjMDIxNDE4LTk4NzUtNGRlNi1iNDlmLTE2NDEwODI3ZWJmMiIsIm5iZiI6MTcyMTg2MjU4OX0.wQrRjGyRkxb5GUUeiHOtCBmO1b6_sMs7L1MY1a2tmUE",
 							"type": "string"
 						}
 					]
@@ -129,13 +241,13 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/put",
+					"raw": "localhost:8080/methods/put",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"put"
 					]
 				}
@@ -143,19 +255,14 @@
 			"response": []
 		},
 		{
-			"name": "403",
+			"name": "200 ALEJANDRA",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "andrea",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJhbGVqYW5kcmEiLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4sREVMRVRFLFJFQUQsQ1JFQVRFLFVQREFURSIsImlhdCI6MTcyMTg2MjU2MSwiZXhwIjoxNzIxODgwNTYxLCJqdGkiOiI5ODA2Nzk4Ny1hNmZjLTQ2MDgtYjA4MC03NWY5YTBiM2IzMTUiLCJuYmYiOjE3MjE4NjI1NjF9.krNOGyXI9H9XZDdJkqf3u59lSa1JfkYP4YoG9K1w_yU",
 							"type": "string"
 						}
 					]
@@ -163,13 +270,13 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/put",
+					"raw": "localhost:8080/methods/put",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"put"
 					]
 				}
@@ -177,87 +284,14 @@
 			"response": []
 		},
 		{
-			"name": "403",
+			"name": "403 CARLOS",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "santiago",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PATCH",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/auth/patch",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"auth",
-						"patch"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "200",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "anyi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PATCH",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/auth/patch",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"auth",
-						"patch"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "403",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "andrea",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJjYXJsb3MiLCJhdXRob3JpdGllcyI6IlJPTEVfSU5WSVRFRCxSRUFEIiwiaWF0IjoxNzIxODYyNTg5LCJleHAiOjE3MjE4ODA1ODksImp0aSI6ImVjMDIxNDE4LTk4NzUtNGRlNi1iNDlmLTE2NDEwODI3ZWJmMiIsIm5iZiI6MTcyMTg2MjU4OX0.wQrRjGyRkxb5GUUeiHOtCBmO1b6_sMs7L1MY1a2tmUE",
 							"type": "string"
 						}
 					]
@@ -265,13 +299,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/delete",
+					"raw": "localhost:8080/methods/delete",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"delete"
 					]
 				}
@@ -279,19 +313,14 @@
 			"response": []
 		},
 		{
-			"name": "200",
+			"name": "200 ALEJANDRA",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "anyi",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "1234",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBVVRISldULUJBQ0tFTkQiLCJzdWIiOiJhbGVqYW5kcmEiLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4sREVMRVRFLFJFQUQsQ1JFQVRFLFVQREFURSIsImlhdCI6MTcyMTg2MjU2MSwiZXhwIjoxNzIxODgwNTYxLCJqdGkiOiI5ODA2Nzk4Ny1hNmZjLTQ2MDgtYjA4MC03NWY5YTBiM2IzMTUiLCJuYmYiOjE3MjE4NjI1NjF9.krNOGyXI9H9XZDdJkqf3u59lSa1JfkYP4YoG9K1w_yU",
 							"type": "string"
 						}
 					]
@@ -299,13 +328,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/auth/delete",
+					"raw": "localhost:8080/methods/delete",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
+						"methods",
 						"delete"
 					]
 				}
