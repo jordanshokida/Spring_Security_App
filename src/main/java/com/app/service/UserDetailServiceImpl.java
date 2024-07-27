@@ -4,6 +4,7 @@ import com.app.controller.dto.AuthCreateUserRequest;
 import com.app.controller.dto.AuthLoginRequest;
 import com.app.controller.dto.AuthResponse;
 import com.app.entity.Role;
+import com.app.entity.RoleEnum;
 import com.app.entity.UserEntity;
 import com.app.repository.RoleRepository;
 import com.app.repository.UserRepository;
@@ -23,6 +24,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -99,7 +101,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     }
 
     public AuthResponse createUser(AuthCreateUserRequest authCreateUserRequest){
-        String username = authCreateUserRequest.username();
+        /*String username = authCreateUserRequest.username();
         String password = authCreateUserRequest.password();
 
         List<String> roleRequest = authCreateUserRequest.roleRequest().roleListName();
@@ -138,6 +140,42 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         AuthResponse authResponse = new AuthResponse(createdUser.getUsername(),"User created succesfully",accesToken,true);
 
+
+        return authResponse;*/
+        String username = authCreateUserRequest.username();
+        String password = authCreateUserRequest.password();
+
+        // Buscar el rol USER desde el repositorio
+        Role userRole = roleRepository.findByRoleEnum(RoleEnum.USER)
+                .orElseThrow(() -> new IllegalArgumentException("The role USER does not exist"));
+
+        // Crear el conjunto de roles con solo el rol USER
+        Set<Role> roleEntitySet = new HashSet<>();
+        roleEntitySet.add(userRole);
+
+        UserEntity user = UserEntity.builder()
+                .username(username)
+                .password(passwordEncoder.encode(password))
+                .roles(roleEntitySet)
+                .isEnabled(true)
+                .accountNoLocked(true)
+                .accountNoExpired(true)
+                .credentialNoExpired(true)
+                .build();
+
+        UserEntity createdUser = userRepository.save(user);
+
+        ArrayList<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+        createdUser.getRoles().forEach(role ->
+                authorityList.add(new SimpleGrantedAuthority("ROLE_".concat(role.getUserName())))
+        );
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(createdUser.getUsername(), createdUser.getPassword(), authorityList);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String accessToken = jwtUtils.createToken(authentication);
+
+        AuthResponse authResponse = new AuthResponse(createdUser.getUsername(), "User created successfully", accessToken, true);
 
         return authResponse;
     }

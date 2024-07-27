@@ -1,0 +1,39 @@
+/* App.css */
+.App {
+    text-align: center;
+}
+
+.login-register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.input {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ADD8E6; /* Light blue border */
+    border-radius: 10px; /* Rounded borders */
+    outline: none;
+}
+
+.input:focus {
+    border-color: #87CEEB; /* Slightly darker blue when focused */
+}
+
+.btn {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #ADD8E6; /* Light blue background */
+    border: none;
+    border-radius: 10px; /* Rounded borders */
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #87CEEB; /* Slightly darker blue on hover */
+}
